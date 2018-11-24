@@ -1,28 +1,33 @@
 package com.urmilshroff.goalkeeper
 
+import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.content_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, GoalsFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener {
+    override fun onFragmentInteraction(uri: Uri) {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        floatingActionButtonNewGoal.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+        val goalsFragment=GoalsFragment.newInstance()
+        val transaction=supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_container,goalsFragment).commit()
+
+//        floatingActionButtonNewGoal.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -58,18 +63,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_goals -> {
-                //yo yo
+                val goalsFragment=GoalsFragment.newInstance()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container,goalsFragment).commit()
             }
 
             R.id.nav_settings -> {
-                //yo yo
+                val settingsFragment=SettingsFragment.newInstance()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container,settingsFragment).commit()
             }
 
-            R.id.nav_github -> {
-                //yo yo
+            R.id.nav_about -> {
+                val aboutFragment=AboutFragment.newInstance()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container,aboutFragment).commit()
             }
 
             R.id.nav_share -> {
@@ -80,7 +90,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 //yo yo
             }
 
-            R.id.nav_about -> {
+            R.id.nav_github -> {
                 //yo yo
             }
         }
