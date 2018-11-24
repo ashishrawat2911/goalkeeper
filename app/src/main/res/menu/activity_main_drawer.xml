@@ -5,33 +5,38 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_camera"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Import"/>
+                android:id="@+id/nav_goals"
+                android:icon="@drawable/ic_round_flag"
+                android:title="Goals"/>
+
         <item
-                android:id="@+id/nav_gallery"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Gallery"/>
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_round_settings"
+                android:title="Settings"/>
+
         <item
-                android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Slideshow"/>
-        <item
-                android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Tools"/>
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_round_info"
+                android:title="About"/>
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Other">
         <menu>
             <item
-                    android:id="@+id/nav_share"
-                    android:icon="@drawable/ic_menu_share"
-                    android:title="Share"/>
+                android:id="@+id/nav_github"
+                android:icon="@drawable/ic_round_code"
+                android:title="GitHub"/>
+
             <item
-                    android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="Send"/>
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_round_share"
+                    android:title="Share"/>
+
+            <item
+                    android:id="@+id/nav_rate"
+                    android:icon="@drawable/ic_round_thumbs_up_down"
+                    android:title="Rate"/>
         </menu>
     </item>
 
