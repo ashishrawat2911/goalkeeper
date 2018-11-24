@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AboutFragment" android:id="@+id/constraintLayoutAbout">
 
-    <TextView
-            android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardViewName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="About fragment"
-            android:id="@+id/textView2" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            card_view:cardCornerRadius="4dp"
+            android:layout_marginEnd="8dp"
+            card_view:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintTop_toTopOf="parent"
+    >
 
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" tools:src="@tools:sample/avatars[2]"
+                    android:id="@+id/imageViewAvatar"
+                    android:layout_marginBottom="8dp"
+                    card_view:layout_constraintBottom_toTopOf="@+id/textViewDevName" android:layout_marginTop="8dp"
+                    card_view:layout_constraintTop_toTopOf="parent" card_view:layout_constraintVertical_bias="1.0"
+                    card_view:srcCompat="@drawable/ic_round_code" android:layout_marginEnd="8dp"
+                    card_view:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                    card_view:layout_constraintStart_toStartOf="parent" android:contentDescription="TODO"/>
+            <TextView
+                    android:text="@string/dev_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textViewDevName"
+                    card_view:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    card_view:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    android:fontFamily="monospace" android:typeface="monospace" android:textSize="18sp"
+                    android:textStyle="bold" android:textAlignment="center" tools:layout_editor_absoluteY="144dp"/>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
