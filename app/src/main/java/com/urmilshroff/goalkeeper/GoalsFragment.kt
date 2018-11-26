@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import kotlinx.android.synthetic.main.fragment_goals.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -29,6 +32,28 @@ class GoalsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_goals, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var arrList= arrayListOf<String>()
+        val adapter = ArrayAdapter<String>(this.activity, R.layout.fragment_goals, arrList)
+
+//        val listView: ListView = findViewById(R.id.listViewTemp)
+        listViewTemp.adapter = adapter
+
+        buttonTemp.setOnClickListener { onClick(arrList,adapter,listViewTemp) }
+    }
+
+    private fun onClick(
+        arrList: ArrayList<String>,
+        adapter: ArrayAdapter<String>,
+        listViewTemp: ListView)
+    {
+        var result=editTextTemp.text.toString()
+        arrList.add(result)
+        adapter.notifyDataSetChanged()
     }
 
     fun onButtonPressed(uri: Uri) {
